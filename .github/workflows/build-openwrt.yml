@@ -143,7 +143,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
         name: openwrt_armvirt_64_${{ env.FILE_DATE }}
-        path: ${{ env.TMPFILEPATH }}
+        path: ${{ env.FILEPATH }}
         retention-days: ${{ env.RECENT_LASTEST }}
         if-no-files-found: ignore
 
