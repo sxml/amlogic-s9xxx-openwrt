@@ -18,7 +18,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '0 17 * * *'
+    - cron: '0 17 * 11 *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -27,7 +27,7 @@ env:
   CONFIG_FILE: router_config/.config
   DIY_P1_SH: router_config/diy-part1.sh
   DIY_P2_SH: router_config/diy-part2.sh
-  UPLOAD_BIN_DIR: true
+  UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   UPLOAD_COWTRANSFER: false
@@ -189,32 +189,32 @@ jobs:
         retention-days: ${{ env.RECENT_LASTEST }}
         if-no-files-found: ignore
 
-    - name: Upload firmware directory for Belink GT-King
-      uses: actions/upload-artifact@v2
-      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: openwrt_belink_${{ env.FILE_DATE }}
-        path: ${{ env.FILEPATH }}/openwrt_belink_*
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
+    #- name: Upload firmware directory for Belink GT-King
+    #  uses: actions/upload-artifact@v2
+    #  if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    #  with:
+    #    name: openwrt_belink_${{ env.FILE_DATE }}
+    #    path: ${{ env.FILEPATH }}/openwrt_belink_*
+    #    retention-days: ${{ env.RECENT_LASTEST }}
+    #    if-no-files-found: ignore
 
-    - name: Upload firmware directory for Belink GT-King Pro
-      uses: actions/upload-artifact@v2
-      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: openwrt_belinkpro_${{ env.FILE_DATE }}
-        path: ${{ env.FILEPATH }}/openwrt_belinkpro_*
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
+    #- name: Upload firmware directory for Belink GT-King Pro
+    #  uses: actions/upload-artifact@v2
+    #  if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    #  with:
+    #    name: openwrt_belinkpro_${{ env.FILE_DATE }}
+    #    path: ${{ env.FILEPATH }}/openwrt_belinkpro_*
+    #    retention-days: ${{ env.RECENT_LASTEST }}
+    #    if-no-files-found: ignore
 
-    - name: Upload firmware directory for UGOOS AM6 Plus
-      uses: actions/upload-artifact@v2
-      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: openwrt_ugoos_${{ env.FILE_DATE }}
-        path: ${{ env.FILEPATH }}/openwrt_ugoos_*
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
+    #- name: Upload firmware directory for UGOOS AM6 Plus
+    #  uses: actions/upload-artifact@v2
+    #  if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    #  with:
+    #    name: openwrt_ugoos_${{ env.FILE_DATE }}
+    #    path: ${{ env.FILEPATH }}/openwrt_ugoos_*
+    #    retention-days: ${{ env.RECENT_LASTEST }}
+    #    if-no-files-found: ignore
 
     - name: Upload firmware directory for X96-Max+
       uses: actions/upload-artifact@v2
@@ -225,32 +225,32 @@ jobs:
         retention-days: ${{ env.RECENT_LASTEST }}
         if-no-files-found: ignore
 
-    - name: Upload firmware directory for HK1-Box
-      uses: actions/upload-artifact@v2
-      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: openwrt_hk1-box_${{ env.FILE_DATE }}
-        path: ${{ env.FILEPATH }}/openwrt_hk1_*
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
+    #- name: Upload firmware directory for HK1-Box
+    #  uses: actions/upload-artifact@v2
+    #  if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    #  with:
+    #    name: openwrt_hk1-box_${{ env.FILE_DATE }}
+    #    path: ${{ env.FILEPATH }}/openwrt_hk1_*
+    #    retention-days: ${{ env.RECENT_LASTEST }}
+    #    if-no-files-found: ignore
 
-    - name: Upload firmware directory for H96-Max-X3
-      uses: actions/upload-artifact@v2
-      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: openwrt_h96-max-x3_${{ env.FILE_DATE }}
-        path: ${{ env.FILEPATH }}/openwrt_h96_*
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
+    #- name: Upload firmware directory for H96-Max-X3
+    #  uses: actions/upload-artifact@v2
+    #  if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    #  with:
+    #    name: openwrt_h96-max-x3_${{ env.FILE_DATE }}
+    #    path: ${{ env.FILEPATH }}/openwrt_h96_*
+    #    retention-days: ${{ env.RECENT_LASTEST }}
+    #    if-no-files-found: ignore
 
-    - name: Upload firmware directory for Octopus-Planet
-      uses: actions/upload-artifact@v2
-      if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: openwrt_octopus-planet_${{ env.FILE_DATE }}
-        path: ${{ env.FILEPATH }}/openwrt_octopus_*
-        retention-days: ${{ env.RECENT_LASTEST }}
-        if-no-files-found: ignore
+    #- name: Upload firmware directory for Octopus-Planet
+    #  uses: actions/upload-artifact@v2
+    #  if: steps.build.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    #  with:
+    #    name: openwrt_octopus-planet_${{ env.FILE_DATE }}
+    #    path: ${{ env.FILEPATH }}/openwrt_octopus_*
+    #    retention-days: ${{ env.RECENT_LASTEST }}
+    #    if-no-files-found: ignore
 
     - name: Upload OpenWrt Firmware to cowtransfer
       if: steps.build.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
@@ -294,4 +294,3 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
